@@ -5,6 +5,10 @@
     <i>Transforming raw financial data into structured intrinsic valuation outputs.</i>
   </p>
 
+https://github.com/user-attachments/assets/fbe8f50b-465c-44ec-a6a9-d45d844f194f
+
+
+
   <p>
     <img src="https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=node.js&logoColor=white" alt="Node.js" />
     <img src="https://img.shields.io/badge/Excel%20Automation-217346?style=for-the-badge&logo=microsoft-excel&logoColor=white" alt="Excel Automation" />
