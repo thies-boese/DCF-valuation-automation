@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Ticker DCF Add-in</title>
+    <script src="https://appsforoffice.microsoft.com/lib/1/hosted/office.js"></script>
+    <script src="cc2139065b94fbff7619.js"></script>
+    <style>
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        margin: 14px;
+        font-size: 13px;
+      }
+      h2 {
+        margin-top: 0;
+        font-size: 16px;
+      }
+      .row {
+        margin-bottom: 8px;
+      }
+      label {
+        display: inline-block;
+        width: 120px;
+      }
+      .search-container {
+        position: relative;
+        display: inline-block;
+        width: 300px;
+      }
+      input[type="text"] {
+        width: 100%;
+        padding: 8px 12px;
+        font-size: 13px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+      }
+      input[type="text"]:focus {
+        outline: none;
+        border-color: #0078d4;
+        box-shadow: 0 0 0 2px rgba(0, 120, 212, 0.2);
+      }
+      .dropdown {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: white;
+        border: 1px solid #ccc;
+        border-top: none;
+        border-radius: 0 0 4px 4px;
+        max-height: 200px;
+        overflow-y: auto;
+        z-index: 1000;
+        display: none;
+      }
+      .dropdown-item {
+        padding: 8px 12px;
+        cursor: pointer;
+        border-bottom: 1px solid #f0f0f0;
+      }
+      .dropdown-item:hover, .dropdown-item.selected {
+        background-color: #f8f9fa;
+      }
+      .dropdown-item.highlighted {
+        background-color: #e3f2fd;
+      }
+      .dropdown-item:last-child {
+        border-bottom: none;
+      }
+      .company-symbol {
+        font-weight: bold;
+        color: #0078d4;
+      }
+      .company-name {
+        color: #333;
+        margin-left: 8px;
+      }
+      .company-details {
+        color: #666;
+        font-size: 11px;
+        margin-top: 2px;
+      }
+      .loading {
+        padding: 8px 12px;
+        color: #666;
+        font-style: italic;
+      }
+      .no-results {
+        padding: 8px 12px;
+        color: #999;
+      }
+      button {
+        padding: 8px 16px;
+        cursor: pointer;
+        margin-right: 4px;
+        font-size: 13px;
+        border: 1px solid #0078d4;
+        background-color: #0078d4;
+        color: white;
+        border-radius: 4px;
+      }
+      button:hover {
+        background-color: #106ebe;
+      }
+      button:disabled {
+        background-color: #ccc;
+        border-color: #ccc;
+        cursor: not-allowed;
+      }
+      #status {
+        margin-top: 10px;
+        font-size: 11px;
+        color: #555;
+      }
+      small {
+        font-size: 11px;
+        color: #777;
+      }
+      hr {
+        margin: 10px 0;
+        border: 0;
+        border-top: 1px solid #ddd;
+      }
+    </style>
+  <script defer src="polyfill.a3fe4fc379c7a1e49f7c.js"></script><script defer src="taskpane.73b2bf1810dc8ac5e5aa.js"></script></head>
+  <body>
+    <h2>Ticker & DCF</h2>
+
+    <div class="row">
+      <label for="queryInput">Company / Ticker:</label>
+      <div class="search-container">
+        <input type="text" id="queryInput" placeholder="Type company name or ticker..." autocomplete="off" />
+        <div id="dropdown" class="dropdown"></div>
+      </div>
+    </div>
+
+    <div class="row">
+      <button id="btnGetData">Get Financial Data</button>
+    </div>
+
+    <hr />
+
+    <small>
+      • Start typing to search for companies<br />
+      • Select from dropdown or press Enter to get financial data<br />
+      • Creates overview + financial statements + DCF model
+    </small>
+
+    <div id="status">Type a company name or ticker symbol to search...</div>
+  </body>
+</html>

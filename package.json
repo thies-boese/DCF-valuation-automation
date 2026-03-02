@@ -1,0 +1,55 @@
+{
+  "name": "finance_model",
+  "version": "1.0.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/OfficeDev/Office-Addin-TaskPane-JS.git"
+  },
+  "license": "MIT",
+  "config": {
+    "app_to_debug": "excel",
+    "app_type_to_debug": "desktop",
+    "dev_server_port": 3000
+  },
+  "scripts": {
+    "build": "webpack --mode production",
+    "build:dev": "webpack --mode development",
+    "dev-server": "webpack serve --mode development",
+    "lint": "office-addin-lint check",
+    "lint:fix": "office-addin-lint fix",
+    "prettier": "office-addin-lint prettier",
+    "signin": "office-addin-dev-certs install --ca",
+    "start": "office-addin-debugging start manifest.xml",
+    "start:desktop": "office-addin-debugging start manifest.xml desktop",
+    "start:web": "office-addin-debugging start manifest.xml web",
+    "stop": "office-addin-debugging stop manifest.xml",
+    "validate": "office-addin-manifest validate manifest.xml",
+    "watch": "webpack --mode development --watch",
+    "server": "cd server && npm start",
+    "server:dev": "cd server && npm run dev",
+    "server:install": "cd server && npm install",
+    "dev:full": "concurrently \"npm run server:dev\" \"npm run dev-server\"",
+    "start:full": "concurrently \"npm run server\" \"npm start\""
+  },
+  "dependencies": {
+    "core-js": "^3.6.5",
+    "regenerator-runtime": "^0.13.7"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.13.16",
+    "@babel/preset-env": "^7.13.15",
+    "babel-loader": "^8.2.2",
+    "concurrently": "^7.6.0",
+    "copy-webpack-plugin": "^9.0.0",
+    "file-loader": "^6.2.0",
+    "html-loader": "^2.1.2",
+    "html-webpack-plugin": "^5.3.1",
+    "office-addin-debugging": "^4.4.0",
+    "office-addin-dev-certs": "^1.7.0",
+    "office-addin-lint": "^2.0.2",
+    "office-addin-manifest": "^1.7.0",
+    "webpack": "^5.36.2",
+    "webpack-cli": "^4.7.0",
+    "webpack-dev-server": "^4.0.0"
+  }
+}
